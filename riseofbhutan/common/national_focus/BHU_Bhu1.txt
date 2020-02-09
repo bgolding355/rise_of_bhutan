@@ -1,0 +1,1618 @@
+focus_tree = {
+	id = Bhu1
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = BHU
+		}
+	}
+	#Focus for Equipment Effort
+	focus = {
+		id = BHU_equipmenteffort
+		icon = GFX_goal_generic_small_arms
+		x = 25
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BHU_armyeffort }
+		completion_reward = {
+			
+add_tech_bonus = {
+name = infantry_artillery_bonus
+bonus = 1.0
+uses = 1
+category = infantry_weapons
+category = artillery
+}
+
+		}
+	}
+
+	#Focus for Army Effort
+	focus = {
+		id = BHU_armyeffort
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 27
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		completion_reward = {
+			army_experience = 5
+add_tech_bonus = {
+name = land_doc_bonus
+bonus = 1.0
+uses = 1
+category = land_doctrine
+}
+		}
+	}
+
+	#Focus for Mechanization Effort
+	focus = {
+		id = BHU_mechanizationeffort
+		icon = GFX_goal_generic_build_tank
+		x = 29
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BHU_motorizationeffort }
+		completion_reward = {
+			
+add_tech_bonus = {
+name = motorized_bonus
+ahead_reduction = 2
+uses = 1
+category = motorized_equipment
+}
+
+		}
+	}
+
+	#Focus for Equipment Effort II
+	focus = {
+		id = BHU_equipmenteffortii
+		icon = GFX_goal_generic_army_artillery2
+		x = 25
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BHU_equipmenteffort }
+		completion_reward = {
+			
+add_tech_bonus = {
+name = infantry_artillery_bonus
+bonus = 1.0
+uses = 1
+category = infantry_weapons
+category = artillery
+}
+
+		}
+	}
+
+	#Focus for Capital Ship Effort
+	focus = {
+		id = BHU_capitalshipeffort
+		icon = GFX_goal_generic_navy_battleship
+		x = 21
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BHU_cruisereffort }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			
+navy_experience = 25
+add_tech_bonus = {
+name = capital_ships_bonus
+bonus = 1.0
+ahead_reduction = 2
+uses = 1
+category = bc_tech
+category = bb_tech
+category = cv_tech
+}
+
+		}
+	}
+
+	#Focus for Aviation Effort
+	focus = {
+		id = BHU_aviationeffort
+		icon = GFX_goal_generic_build_airforce
+		x = 33
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			air_experience= 100
+		}
+	}
+
+	#Focus for Flexible Navy
+	focus = {
+		id = BHU_flexiblenavy
+		icon = GFX_goal_generic_navy_carrier
+		x = 17
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BHU_navaleffort }
+		mutually_exclusive = { focus = BHU_largenavy }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus = {
+name = sub_op_bonus
+bonus = 1.0
+uses = 2
+technology = convoy_interdiction_ti
+technology = unrestricted_submarine_warfare
+technology = wolfpacks
+technology = advanced_submarine_warfare
+technology = combined_operations_raiding
+}
+		}
+	}
+
+	#Focus for Large Navy
+	focus = {
+		id = BHU_largenavy
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		x = 21
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BHU_navaleffort }
+		mutually_exclusive = { focus = BHU_flexiblenavy }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			
+add_tech_bonus = {
+name = fleet_in_being_bonus
+bonus = 1.0
+uses = 2
+category = fleet_in_being_tree
+}
+
+		}
+	}
+
+	#Focus for Submarine Effort
+	focus = {
+		id = BHU_submarineeffort
+		icon = GFX_goal_generic_navy_submarine
+		x = 17
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = BHU_flexiblenavy 
+			focus = BHU_largenavy 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			
+add_tech_bonus = {
+name = ss_bonus
+bonus = 1.0
+ahead_reduction = 2
+uses = 1
+category = ss_tech
+}
+
+		}
+	}
+
+	#Focus for Cruiser Effort
+	focus = {
+		id = BHU_cruisereffort
+		icon = GFX_goal_generic_navy_cruiser
+		x = 21
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = BHU_largenavy 
+			focus = BHU_flexiblenavy 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			
+add_tech_bonus = {
+name = cr_bonus
+bonus = 1.0
+ahead_reduction = 2
+uses = 1
+category = cl_tech
+category = ca_tech
+}
+
+		}
+	}
+
+	#Focus for Destroyer Effort
+	focus = {
+		id = BHU_destroyereffort
+		icon = GFX_goal_generic_wolf_pack
+		x = 17
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BHU_submarineeffort }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			
+add_tech_bonus = {
+name = dd_bonus
+bonus = 1.0
+ahead_reduction = 2
+uses = 1
+category = dd_tech
+}
+
+		}
+	}
+
+	#Focus for Motorization Effort
+	focus = {
+		id = BHU_motorizationeffort
+		icon = GFX_goal_generic_army_motorized
+		x = 29
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BHU_armyeffort }
+		bypass = {
+			 has_tech = motorised_infantry 
+		}
+		completion_reward = {			
+add_tech_bonus = {
+name = motorized_bonus
+bonus = 3.0
+technology = motorised_infantry
+}
+		}
+	}
+
+	#Focus for Doctrine Effort
+	focus = {
+		id = BHU_doctrineeffort
+		icon = GFX_goal_generic_army_doctrines
+		x = 27
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BHU_armyeffort }
+		completion_reward = {	
+army_experience = 5
+add_tech_bonus = {
+name = land_doc_bonus
+bonus = 1.0
+uses = 1
+category = land_doctrine
+}
+
+		}
+	}
+
+	#Focus for Conquer India
+	focus = {
+		id = BHU_conquerindia
+		icon = GFX_focus_RAJ_seek_help_from_germany
+		x = 16
+		y = 12
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BHU_proclaimanewdynasty }
+		ai_will_do = {
+			factor = 1
+		}
+		bypass = {
+			has_annex_war_goal= RAJ
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = RAJ
+}
+		}
+	}
+
+	#Focus for Doctrine Effort II
+	focus = {
+		id = BHU_doctrineeffortii
+		icon = GFX_goal_generic_army_doctrines
+		x = 27
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BHU_doctrineeffort }
+		completion_reward = {
+			
+army_experience = 5
+add_tech_bonus = {
+name = land_doc_bonus
+bonus = 1.0
+uses = 1
+category = land_doctrine
+}
+
+		}
+	}
+
+	#Focus for Equipment Effort III
+	focus = {
+		id = BHU_equipmenteffortiii
+		icon = GFX_goal_generic_army_artillery2
+		x = 25
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BHU_equipmenteffortii }
+		completion_reward = {
+			
+add_tech_bonus = {
+name = infantry_artillery_bonus
+ahead_reduction = 2
+uses = 1
+category = infantry_weapons
+category = artillery
+}
+
+		}
+	}
+
+	#Focus for Armor Effort
+	focus = {
+		id = BHU_armoreffort
+		icon = GFX_goal_generic_army_tanks
+		x = 29
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BHU_mechanizationeffort }
+		completion_reward = {
+			
+add_tech_bonus = {
+name = armor_bonus
+bonus = 1.0
+uses = 2
+category = armor
+}
+
+		}
+	}
+
+	#Focus for Special Forces
+	focus = {
+		id = BHU_specialforces
+		icon = GFX_goal_generic_special_forces
+		x = 27
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = BHU_equipmenteffortiii 
+		}
+		prerequisite = { 
+			focus = BHU_doctrineeffortii 
+		}
+		prerequisite = { 
+			focus = BHU_armoreffort 
+		}
+		completion_reward = {
+			
+add_ideas = special_forces
+add_tech_bonus = {
+name = special_forces_bonus
+bonus = 1.0
+uses = 1
+technology = paratroopers
+technology = paratroopers2
+technology = marines
+technology = marines2
+technology = tech_mountaineers
+technology = tech_mountaineers2
+}
+
+		}
+	}
+
+	#Focus for Fighter Focus
+	focus = {
+		id = BHU_fighterfocus
+		icon = GFX_goal_generic_air_fighter2
+		x = 35
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BHU_aviationeffort }
+		mutually_exclusive = { focus = BHU_bomberfocus }
+		completion_reward = {
+			add_tech_bonus = {
+name = fighter_bonus
+bonus = 1.0
+uses = 2
+technology = early_fighter
+technology = fighter1
+technology = fighter2
+technology = fighter3
+technology = heavy_fighter1
+technology = heavy_fighter2
+technology = heavy_fighter3
+}
+		}
+	}
+
+	#Focus for Bomber Focus
+	focus = {
+		id = BHU_bomberfocus
+		icon = GFX_goal_generic_air_bomber
+		x = 31
+		y = 1
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BHU_aviationeffort }
+		mutually_exclusive = { focus = BHU_fighterfocus }
+		completion_reward = {
+			add_tech_bonus = {
+name = bomber_bonus
+bonus = 1.0
+uses = 2
+technology = strategic_bomber1
+technology = strategic_bomber2
+technology = strategic_bomber3
+category = tactical_bomber
+}
+		}
+	}
+
+	#Focus for Aviation Effort II
+	focus = {
+		id = BHU_aviationeffortii
+		icon = GFX_goal_generic_air_doctrine
+		x = 33
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = BHU_bomberfocus 
+			focus = BHU_fighterfocus 
+		}
+		completion_reward = {
+			
+air_experience = 25
+if = {
+limit = {
+capital_scope = {
+OR = {
+NOT = { is_controlled_by = ROOT }
+NOT = {
+free_building_slots = {
+building = air_base
+size > 1
+}
+}
+}
+}
+}
+random_owned_controlled_state = {
+limit = {
+free_building_slots = {
+building = air_base
+size > 1
+}
+}
+add_building_construction = {
+type = air_base
+level = 2
+instant_build = yes
+}
+ROOT = { set_country_flag = aviation_effort_2_AB }
+}
+}
+if = {
+limit = {
+capital_scope = {
+is_controlled_by = ROOT
+free_building_slots = {
+building = air_base
+size > 1
+}
+}
+}
+capital_scope = {
+add_building_construction = {
+type = air_base
+level = 2
+instant_build = yes
+}
+ROOT = { set_country_flag = aviation_effort_2_AB }
+}
+}
+add_tech_bonus = {
+name =  air_doc_bonus
+bonus = 1.0
+uses = 1
+category = air_doctrine
+}
+
+		}
+	}
+
+	#Focus for CAS Effort
+	focus = {
+		id = BHU_caseffort
+		icon = GFX_goal_generic_CAS
+		x = 35
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BHU_fighterfocus }
+		completion_reward = {
+			add_tech_bonus = {
+name = CAS_bonus
+bonus = 1.0
+ahead_reduction = 2
+uses = 1
+category = cas_bomber
+}
+		}
+	}
+
+	#Focus for NAV Effort
+	focus = {
+		id = BHU_naveffort
+		icon = GFX_goal_generic_air_naval_bomber
+		x = 31
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BHU_bomberfocus }
+		completion_reward = {
+			add_tech_bonus = {
+name = nav_bomber_bonus
+bonus = 1.0
+ahead_reduction = 2
+uses = 1
+category = naval_bomber
+}
+		}
+	}
+
+	#Focus for Naval Effort
+	focus = {
+		id = BHU_navaleffort
+		icon = GFX_goal_generic_construct_naval_dockyard
+		x = 19
+		y = 0
+		cost = 10
+		available_if_capitulated = yes
+		available = {
+			
+any_state = {
+is_coastal = yes
+is_controlled_by = ROOT
+}
+
+		}
+		completion_reward = {
+			
+navy_experience = 25
+if = {
+limit = {
+NOT = {
+any_owned_state = {
+dockyard > 0
+free_building_slots = {
+building = dockyard
+size > 2
+include_locked = yes
+}
+}
+}
+any_owned_state = {
+is_coastal = yes
+}
+}
+random_owned_controlled_state = {
+limit = {
+is_coastal = yes
+free_building_slots = {
+building = dockyard
+size > 2
+include_locked = yes
+}
+}
+add_extra_state_shared_building_slots = 3
+add_building_construction = {
+type = dockyard
+level = 3
+instant_build = yes
+}
+}
+set_country_flag = naval_effort_built
+}
+if = {
+limit = {
+NOT = { has_country_flag = naval_effort_built }
+any_owned_state = {
+dockyard > 0
+free_building_slots = {
+building = dockyard
+size > 2
+include_locked = yes
+}
+}
+}
+random_owned_controlled_state = {
+limit = {
+dockyard > 0
+free_building_slots = {
+building = dockyard
+size > 2
+include_locked = yes
+}
+}
+add_extra_state_shared_building_slots = 3
+add_building_construction = {
+type = dockyard
+level = 3
+instant_build = yes
+}
+}
+set_country_flag = naval_effort_built
+}
+if = {
+limit = {
+NOT = { has_country_flag = naval_effort_built }
+NOT = {
+any_owned_state = {
+free_building_slots = {
+building = dockyard
+size > 2
+include_locked = yes
+}
+}
+}
+}
+random_state = {
+limit = {
+controller = { tag = ROOT }
+free_building_slots = {
+building = dockyard
+size > 2
+include_locked = yes
+}
+}
+add_extra_state_shared_building_slots = 3
+add_building_construction = {
+type = dockyard
+level = 3
+instant_build = yes
+}
+}
+}
+
+		}
+	}
+
+	#Focus for Military Factories III
+	focus = {
+		id = BHU_militaryfactoriesiii
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 1
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BHU_militaryfactoriesii }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ 				limit = {
+ 					free_building_slots = {
+ 						building = arms_factory
+						size > 0
+ 						include_locked = yes
+ 						}
+ 					}
+ 		add_extra_state_shared_building_slots = 2
+		add_building_construction = {
+ 		type = arms_factory
+ 		level = 2
+ 		instant_build = yes
+ 	}
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+
+		}
+	}
+
+	#Focus for Zhong University
+	focus = {
+		id = BHU_zhonguniversity
+		icon = GFX_goal_tfv_generic_tech_sharing
+		x = 13
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = BHU_givepowertothegenerals 
+			}
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_research_slot=1
+		}
+	}
+
+	#Focus for Claims on Tibet
+	focus = {
+		id = BHU_claimsontibet
+		icon = GFX_goal_generic_small_arms
+		x = 18
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BHU_riseofthethunderdragonempire }
+		ai_will_do = {
+			factor = 1
+		}
+		bypass = {
+			has_annex_war_goal=TIB
+		}
+		completion_reward = {
+			create_wargoal={type=annex_everything target=TIB}
+		}
+	}
+
+	#Focus for Claims on Nepal
+	focus = {
+		id = BHU_claimsonnepal
+		icon = GFX_focus_secret_rearmament
+		x = 18
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BHU_claimsontibet }
+		ai_will_do = {
+			factor = 1
+		}
+		bypass = {
+			has_annex_war_goal= NEP
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = NEP
+}
+		}
+	}
+
+	#Focus for Focus on China
+	focus = {
+		id = BHU_focusonchina
+		icon = GFX_focus_attack_china
+		x = 16
+		y = 8
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BHU_claimsonnepal }
+		ai_will_do = {
+			factor = 1
+		}
+		bypass = {
+			has_annex_war_goal= CHI
+		}
+		completion_reward = {
+			declare_war_on={
+target=CHI 
+type=annex_everything
+}
+		}
+	}
+
+	#Focus for Recruit Additional Men
+	focus = {
+		id = BHU_recruitadditionalmen
+		icon = GFX_focus_generic_military_mission
+		x = 15
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = BHU_zhonguniversity 
+			focus = BHU_riseofthethunderdragonempire 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_manpower=30000
+		}
+	}
+
+	#Focus for Prepare for the Liberation of India
+	focus = {
+		id = BHU_preparefortheliberationofindia
+		icon = GFX_focus_RAJ_indianisation_of_army
+		x = 8
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = BHU_invitenepal 
+		}
+		prerequisite = { 
+			focus = BHU_invitetibet 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_manpower = 50000
+		}
+	}
+
+	#Focus for Bring South East Asia into the Fold
+	focus = {
+		id = BHU_bringsoutheastasiaintothefold
+		icon = GFX_focus_AST_squander_bug
+		x = 12
+		y = 8
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BHU_theliberationofsoutheastasia }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			
+add_to_faction=VIN
+add_to_faction=LAO
+add_to_faction=CAM
+
+		}
+	}
+
+	#Focus for The Liberation of India
+	focus = {
+		id = BHU_theliberationofindia
+		icon = GFX_focus_RAJ_two_nation_theory
+		x = 8
+		y = 8
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BHU_preparefortheliberationofindia }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_manpower=50000
+			release=RAJ
+			add_to_faction=RAJ
+			declare_war_on={target=ENG type=annex_everything}
+			add_war_support=0.35
+
+			RAJ= {
+				set_cosmetic_tag = LOI
+				retire_country_leader = yes
+			}
+
+		}
+	}
+
+	#Focus for Strike at Japan
+	focus = {
+		id = BHU_strikeatjapan
+		icon = GFX_focus_attack_japan
+		x = 9
+		y = 10
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = BHU_theliberationofindia 
+			focus = BHU_bringsoutheastasiaintothefold 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			
+create_wargoal= { 
+type = annex_everything 
+target = JAP
+}
+
+		}
+	}
+
+	#Focus for The Liberation of South East Asia
+	focus = {
+		id = BHU_theliberationofsoutheastasia
+		icon = GFX_focus_attack_france
+		x = 12
+		y = 6
+		cost = 4
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = BHU_invitenepal 
+		}
+		prerequisite = { 
+			focus = BHU_invitetibet 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_political_power=-200
+FRA = {
+release=vin
+release=lao
+release=cam
+}
+		}
+	}
+
+	#Focus for Invite Nepal
+	focus = {
+		id = BHU_invitenepal
+		icon = GFX_goal_generic_intelligence_exchange
+		x = 11
+		y = 5
+		cost = 4
+		available_if_capitulated = yes
+		prerequisite = { focus = BHU_formtheanticolonialleague }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			
+add_to_faction= NEP
+
+		}
+	}
+
+	#Focus for Invite Tibet
+	focus = {
+		id = BHU_invitetibet
+		icon = GFX_goal_generic_intelligence_exchange
+		x = 9
+		y = 5
+		cost = 4
+		available_if_capitulated = yes
+		prerequisite = { focus = BHU_formtheanticolonialleague }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			
+add_to_faction= TIB
+
+		}
+	}
+	
+	#Focus for 'Focus on Science'
+	focus = {
+		id = BHU_focusonscience
+		icon = GFX_goal_tfv_generic_tech_sharing
+		x = 8
+		y = 4
+		cost = 4
+		available_if_capitulated = yes
+		prerequisite = { focus = BHU_staythecourse }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {	
+			add_research_slot= 1
+		}
+	}
+
+	#Focus for Military Factories II
+	focus = {
+		id = BHU_militaryfactoriesii
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 1
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BHU_militaryfactoriesi }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ 		limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+ }
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = arms_factory
+ level = 2
+ instant_build = yes
+ }
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Form the Anti-Colonial League
+	focus = {
+		id = BHU_formtheanticolonialleague
+		icon = GFX_goal_generic_propaganda
+		x = 10
+		y = 4
+		cost = 4
+		available_if_capitulated = yes
+		prerequisite = { focus = BHU_staythecourse }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			create_faction= League
+		}
+	}
+
+
+
+	#Focus for Military Factories I
+	focus = {
+		id = BHU_militaryfactoriesi
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 1
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BHU_begininfrastructuredevelopment }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			
+			random_owned_controlled_state={
+ 				limit = {
+ 					free_building_slots = {
+ 					building = arms_factory
+ 					size > 0
+ 					include_locked = yes
+ 				}
+ 			}
+ 			add_extra_state_shared_building_slots = 1
+ 			add_building_construction = {
+ 				type = arms_factory
+ 				level = 1
+ 				instant_build = yes
+ 				}
+ 				set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ 			}
+		}
+	}
+
+	#Focus for Civilian Factories II
+	focus = {
+		id = BHU_civilianfactoriesii
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 5
+		y = 5
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BHU_civilianfactoriesi }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+		random_owned_controlled_state={
+ 			limit = {
+ 				free_building_slots = {
+ 				building = industrial_complex
+ 				size > 0
+ 				include_locked = yes
+ 				}
+			}
+ 			add_extra_state_shared_building_slots = 2
+ 			add_building_construction = {
+ 				type = industrial_complex
+ 				level = 2
+ 				instant_build = yes
+ 				}
+ 			}
+		}
+	}
+
+	#Focus for Civilian Factories I
+	focus = {
+		id = BHU_civilianfactoriesi
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 5
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BHU_continueinfrastructuredevelopment }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+		random_owned_controlled_state={
+ 			limit = {
+ 				free_building_slots = {
+ 				building = industrial_complex
+ 				size > 0
+ 				include_locked = yes
+ 				}
+			}
+ 			add_extra_state_shared_building_slots = 2
+ 			add_building_construction = {
+ 				type = industrial_complex
+ 				level = 2
+ 				instant_build = yes
+ 				}
+ 			}
+		}
+	}
+
+	#Focus for Stay the course
+	focus = {
+		id = BHU_staythecourse
+		icon = GFX_focus_smiling_buddha
+		x = 9
+		y = 3
+		cost = 4
+		available_if_capitulated = yes
+		prerequisite = { focus = BHU_politicaldevelopment }
+		mutually_exclusive = { focus = BHU_givepowertothegenerals }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_political_power= 100
+			add_stability = 0.20
+		}
+	}
+
+	#Focus for Continue Infrastructure Development
+	focus = {
+		id = BHU_continueinfrastructuredevelopment
+		icon = GFX_goal_generic_construct_infrastructure
+		x = 5
+		y = 3
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BHU_begininfrastructuredevelopment }
+		ai_will_do = {
+			factor = 1
+		}
+completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 0
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 1
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 1
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	#Focus for Give Power to the Generals
+	focus = {
+		id = BHU_givepowertothegenerals
+		icon = GFX_focus_generic_support_the_left_right
+		x = 15
+		y = 3
+		cost = 4
+		available_if_capitulated = yes
+		prerequisite = { focus = BHU_politicaldevelopment }
+		mutually_exclusive = { focus = BHU_staythecourse }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = fascism 
+popularity = 0.35 
+}
+		}
+	}
+
+	#Focus for Political Development
+	focus = {
+		id = BHU_politicaldevelopment
+		icon = GFX_goal_generic_intelligence_exchange
+		x = 12
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BHU_continuepolitcalcentralization }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_political_power= 150
+		}
+	}
+
+	#Focus for Begin Infrastructure Development
+	focus = {
+		id = BHU_begininfrastructuredevelopment
+		icon = GFX_goal_generic_production
+		x = 3
+		y = 2
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BHU_continuepolitcalcentralization }
+		ai_will_do = {
+			factor = 1
+		}
+completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 0
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 1
+					}
+					OR = {
+						is_in_home_area = yes
+						NOT = {
+							owner = {
+								any_owned_state = {
+									free_building_slots = {
+										building = infrastructure
+										size > 1
+									}
+									is_in_home_area = yes
+								}
+							}
+						}
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	#Focus for Begin Centralization
+	focus = {
+		id = BHU_begincentralization
+		icon = GFX_goal_tripartite_pact
+		x = 7
+		y = 0
+		cost = 5
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+add_political_power=150
+		}
+	}
+
+	#Focus for Continue Politcal Centralization
+	focus = {
+		id = BHU_continuepolitcalcentralization
+		icon = GFX_goal_tfv_strengthen_commonwealth_ties
+		x = 7
+		y = 1
+		cost = 5
+		available_if_capitulated = yes
+		prerequisite = { focus = BHU_begincentralization }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_political_power= 150
+			add_war_support= 0.2
+		}
+	}
+
+	#Focus for Education in our Nation
+	focus = {
+		id = BHU_educationinournation
+		icon = GFX_goal_tfv_generic_tech_sharing
+		x = 3
+		y = 6
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = BHU_militaryfactoriesiii 
+			focus = BHU_civilianfactoriesii 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			
+add_research_slot= 1
+
+		}
+	}
+
+	#Focus for Strike at the Dutch
+	focus = {
+		id = BHU_strikeatthedutch
+		icon = GFX_goal_generic_demand_territory
+		x = 11
+		y = 10
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = BHU_bringsoutheastasiaintothefold 
+			focus = BHU_theliberationofindia 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			
+add_manpower=50000
+release=INS
+add_to_faction=INS
+declare_war_on={target=HOL type=annex_everything}
+add_war_support=0.35
+INS={
+		set_cosmetic_tag=SAD
+		retire_country_leader = yes
+	}
+		}
+	}
+
+	#Focus for Rise of the Thunder Dragon Empire
+	focus = {
+		id = BHU_riseofthethunderdragonempire
+		icon = GFX_goal_generic_small_arms
+		x = 17
+		y = 4
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BHU_givepowertothegenerals }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			
+		set_politics= {
+ 		ruling_party = fascism 
+		elections_allowed = no 
+		}
+		BHU={set_legitimacy = 0.55}
+		add_political_power=-150
+
+		create_country_leader = {
+			name = "Yandi Zhong"
+			desc = "POLITICS_OSWALD_MOSLEY_DESC"
+			picture = "Bhutan_yz.dds"
+			expire = "1965.1.1"
+			ideology = fascism_ideology
+			traits = {
+				economic_reformer
+			}
+		}
+		}
+	}
+
+	#Focus for Incorporate the Conquered Territories
+	focus = {
+		id = BHU_incorporatetheconqueredterritories
+		icon = GFX_goal_generic_position_armies
+		x = 20
+		y = 8
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BHU_claimsonnepal }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_state_core=322
+			add_state_core= 323
+			add_political_power=-100
+		}
+	}
+
+	#Focus for Proclaim a New Dynasty
+	focus = {
+		id = BHU_proclaimanewdynasty
+		icon = GFX_focus_man_claim_the_mandate_of_heaven
+		x = 18
+		y = 10
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = BHU_focusonchina 
+		}
+		prerequisite = { 
+			focus = BHU_incorporatetheconqueredterritories 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_war_with= CHI
+		}
+		completion_reward = {
+			add_state_core= 606
+			add_state_core= 608
+			add_state_core= 750
+			add_state_core= 595
+			add_state_core= 752
+			add_state_core= 603
+			add_state_core= 614
+			add_state_core= 607
+			add_state_core= 749
+			add_state_core= 620
+			add_state_core= 602
+			add_state_core= 598
+			add_state_core= 600
+			add_state_core= 751
+			add_state_core= 743
+			add_state_core= 597
+			add_state_core= 613
+			add_state_core= 605
+			add_state_core= 744
+			add_state_core= 601
+			add_state_core= 596
+			add_state_core= 748
+			add_state_core= 622
+			add_state_core= 753
+			add_state_core= 283
+			add_state_core= 754
+			add_state_core=755
+			add_state_core=756
+			add_state_core=616
+			add_state_core=604
+			add_state_core=760
+			add_state_core=618
+			add_state_core=759
+			add_state_core=287
+			add_state_core=617
+			add_state_core=619
+			add_state_core=746
+			add_state_core=615
+			add_state_core=621
+			add_state_core=747
+			add_state_core=325
+			add_state_core=593
+			add_state_core=599
+			add_state_core=592
+			add_state_core=591
+			add_state_core=594
+			add_state_core=612
+			add_state_core=611
+			add_state_core=714
+			add_state_core=761
+			add_state_core=610
+			add_state_core=328
+			add_state_core=715
+			add_state_core=716
+			add_state_core=717
+			add_state_core=745
+			add_state_core=609
+			add_state_core=524
+		}
+	}
+
+	#Focus for Defeat Japan
+	focus = {
+		id = BHU_defeatjapan
+		icon = GFX_focus_attack_japan
+		x = 20
+		y = 12
+		cost = 10
+		available_if_capitulated = yes
+		prerequisite = { focus = BHU_proclaimanewdynasty }
+		ai_will_do = {
+			factor = 1
+		}
+		bypass = {
+			has_annex_war_goal= JAP
+		}
+		completion_reward = {
+			create_wargoal= { 
+type = annex_everything 
+target = JAP
+}
+		}
+	}
+	#This is the end of the focuses
+ }
